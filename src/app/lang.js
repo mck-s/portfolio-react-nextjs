@@ -27,7 +27,7 @@ export const translations = {
     skill3Item3: "Cloud Functions（自動化処理）",
     skill3Link: "https://sivasq.siva-s.com/posts/the-best-challenger",
     passionTitle: "パッションプロジェクト",
-    passionText: "特別支援に関わるボランティアを始めて約10年。これまで日本全国10校以上の特別支援学校で、1,000人を超える児童に対し、指導や教材開発に携わってきました。現在は、自作の絵本をもとにした特別支援児童向けのインタラクティブサイトを開発中です。",
+    passionText: "特別支援教育に携わるボランティアを始めて約10年。これまでに日本全国10校以上で、1,000人を超える子どもたちへの指導や教材作成を行ってきました。現在は、オリジナルの絵本をもとに、多様な学習ニーズに対応したインタラクティブなウェブサイトを開発しています。",
   },
   en: {
     aboutTitle: "McK",
