@@ -3,7 +3,7 @@ export const translations = {
   jp: {
     aboutTitle: "マケイ",
     aboutText:
-      "東京在住のバイリンガルWeb dev。スマートで構造的、かつクリエイティブなWeb体験を創り上げます。",
+      "東京在住のバイリンガルWeb開発者。スマートで構造的、かつクリエイティブなWeb体験を創り上げます。",
     projectsTitle: "実績",
     project1Title: "サイトリニューアル",
     project1Desc: "PMとして2件の大規模サイトリニューアルを担当。構造もサーバー環境も異なる2サイトをゼロから再構築し、設計から公開までを主導。（使用技術：WordPress／PHP／HTML／CSS／JavaScript／Kinsta／MySQL（MariaDB）／HubSpot（フォーム・チャットボット機能のみ）／AWS（CloudFront Functions・Route 53））",
@@ -32,7 +32,7 @@ export const translations = {
   en: {
     aboutTitle: "McK",
     aboutText:
-      "Bilingual web dev based in Tokyo, Japan. I think computer stuff is pretty cool.",
+      "Bilingual Web developer based in Tokyo, Japan I think computer stuff is pretty cool",
     projectsTitle: "Experience",
     project1Title: "Large-Scale Site Renewals",
     project1Desc: "Led two major website renewals for a high-profile SaaS company. Rebuilt both sites from scratch with different structures and server setups, managing everything from planning to launch (Tech stack: WordPress, PHP, HTML, CSS, JavaScript, Kinsta, MySQL (MariaDB), HubSpot (forms & chatbot), AWS (CloudFront Functions, Route 53))",
