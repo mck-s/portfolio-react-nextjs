@@ -27,7 +27,7 @@ const FloatingMenu = ({ lang, setLang }) => {
   return (
     <div className={`floating-menu ${isVisible ? "show" : ""}`}>
       <a
-        href="https://www.linkedin.com/in/your-profile"
+        href="www.linkedin.com/in/mck-schroeder-219947135"
         target="_blank"
         rel="noopener noreferrer"
       >
