@@ -3,10 +3,10 @@ export const translations = {
   jp: {
     aboutTitle: "マケイ",
     aboutText:
-      "東京在住のバイリンガルWebデザイナー／デベロッパー。スマートで構造的、かつクリエイティブなWeb体験を創り上げます。",
+      "東京在住のバイリンガルWeb dev。スマートで構造的、かつクリエイティブなWeb体験を創り上げます。",
     projectsTitle: "実績",
     project1Title: "サイトリニューアル",
-    project1Desc: "SaaS型デジタル広告運用プラットフォーム（年間3,000億円以上の広告出稿に利用）を提供する企業にて、PMとして2件の大規模サイトリニューアルを担当。構造もサーバー環境も異なる2サイトをゼロから再構築し、設計から公開までを主導。外部パートナーと連携しながら、期日通り・トラブルなく完遂した（使用技術：WordPress／PHP／HTML／CSS／JavaScript／Kinsta／MySQL（MariaDB）／HubSpot（フォーム・チャットボット機能のみ）／AWS（CloudFront Functions・Route 53））",
+    project1Desc: "PMとして2件の大規模サイトリニューアルを担当。構造もサーバー環境も異なる2サイトをゼロから再構築し、設計から公開までを主導。（使用技術：WordPress／PHP／HTML／CSS／JavaScript／Kinsta／MySQL（MariaDB）／HubSpot（フォーム・チャットボット機能のみ）／AWS（CloudFront Functions・Route 53））",
     project2Title: "Web制作",
     project2Desc: "地方自治体から小規模企業まで、5年以上にわたり個人クライアント向けにサイト制作から保守管理までを一貫して担当（使用技術：HTML／CSS／JavaScript／React／TypeScript／Next.js）",
     project3Title: "既存サイトの運用・保守・UX改善",
@@ -32,10 +32,10 @@ export const translations = {
   en: {
     aboutTitle: "McK",
     aboutText:
-      "Bilingual web designer/developer based in Tokyo, Japan. I think computer stuff is pretty cool.",
+      "Bilingual web dev based in Tokyo, Japan. I think computer stuff is pretty cool.",
     projectsTitle: "Experience",
     project1Title: "Large-Scale Site Renewals",
-    project1Desc: "Led two major website renewals at a SaaS company handling over ¥300B in annual ad spend. Rebuilt both sites from scratch with different structures and server setups, managing everything from planning to launch in close collaboration with external partners (Tech stack: WordPress, PHP, HTML, CSS, JavaScript, Kinsta, MySQL (MariaDB), HubSpot (forms & chatbot), AWS (CloudFront Functions, Route 53))",
+    project1Desc: "Led two major website renewals for a high-profile SaaS company. Rebuilt both sites from scratch with different structures and server setups, managing everything from planning to launch (Tech stack: WordPress, PHP, HTML, CSS, JavaScript, Kinsta, MySQL (MariaDB), HubSpot (forms & chatbot), AWS (CloudFront Functions, Route 53))",
     project2Title: "Web Development",
     project2Desc: "5+ years of freelance website creation to ongoing maintenance for individual clients ranging from local governments to small businesses (Tech stack: HTML, CSS, JavaScript, React, TypeScript, Next.js)",
     project3Title: "Site Operation & Maintenance",
