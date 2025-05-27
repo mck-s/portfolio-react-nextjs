@@ -19,7 +19,7 @@ export const translations = {
     skill1Item3: "Cypress（E2Eテスト）",
     skill2Title: "バックエンド",
     skill2Item1: "Ruby（1年）",
-    skill2Item2: "データベース操作（MySQL / MariaDB）",
+    skill2Item2: "データベース操作（MySQL）",
     skill2Item3: "API連携・実装",
     skill3Title: "SRE / インフラ",
     skill3Item1: "DNS設計・管理",
@@ -49,7 +49,7 @@ export const translations = {
     
     skill2Title: "Backend",
     skill2Item1: "Ruby (1 year)",
-    skill2Item2: "Database operations (MySQL / MariaDB)",
+    skill2Item2: "Database operations (MySQL)",
     skill2Item3: "API integration & implementation",
     
     skill3Title: "SRE / Infrastructure",

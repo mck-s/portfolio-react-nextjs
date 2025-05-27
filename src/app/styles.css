@@ -338,7 +338,6 @@ a:hover {
     transform: translateY(0);
   }
 }
-
 @media (max-width: 768px) {
   .section {
     padding: 60px 24px;
@@ -352,7 +351,21 @@ a:hover {
   .projects li {
     padding-left: 1rem;
   }
+
+  /* ✅ Prevent background image jump on mobile */
+  body::before {
+    position: absolute !important;
+    background-attachment: scroll !important;
+  }
+
+  /* ✅ Speed up and smooth carousel on mobile */
+  .carousel-track {
+    animation-duration: 10s;
+    will-change: transform;
+    transform: translateZ(0);
+  }
 }
+
 
 .about-content {
   display: flex;
