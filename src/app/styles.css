@@ -353,9 +353,12 @@ a:hover {
   }
 
   /* ✅ Prevent background image jump on mobile */
-  body::before {
-    position: absolute !important;
-    background-attachment: scroll !important;
+ body::before {
+    position: fixed; /* back to fixed for full-screen effect */
+    background-attachment: scroll; /* still avoids mobile bugs */
+    opacity: 1; /* ensure it's visible */
+    z-index: -1;
+    pointer-events: none;
   }
 
   /* ✅ Speed up and smooth carousel on mobile */
