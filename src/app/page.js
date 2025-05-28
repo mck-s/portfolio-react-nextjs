@@ -94,21 +94,14 @@ export default function Home() {
                       </span>
                     ))}
                 </p>
-                {/* Carousel */}
-                <div className="carousel-container">
-                  <div className="carousel-track">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                      <div key={num} className="carousel-slide">
-                        <img src={`/${num}.jpg`} alt={`carousel-${num}`} />
-                      </div>
-                    ))}
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                      <div key={`dup-${num}`} className="carousel-slide">
-                        <img src={`/${num}.jpg`} alt={`carousel-duplicate-${num}`} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+<div className="carousel-grid">
+  {[1, 2, 3].map((num) => (
+    <div key={num} className="carousel-item">
+      <img src={`/${num}.jpg`} alt={`carousel-${num}`} />
+    </div>
+  ))}
+</div>
+
               </div>
             </section>
           )}

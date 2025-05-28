@@ -360,13 +360,6 @@ a:hover {
     z-index: -1;
     pointer-events: none;
   }
-
-  /* ✅ Speed up and smooth carousel on mobile */
-  .carousel-track {
-    animation-duration: 10s;
-    will-change: transform;
-    transform: translateZ(0);
-  }
 }
 
 
@@ -393,31 +386,38 @@ a:hover {
   opacity: 1;
   transform: scale(1.07);
 }
-
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  margin-top: 3rem;
-}
-
-.carousel-track {
+.carousel-grid {
   display: flex;
-  animation: scroll 20s linear infinite;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
 }
 
-.carousel-slide {
-  flex: 0 0 auto;
-  width: 150px;
-  margin-right: 20px;
+.carousel-item {
+  flex: 1 1 0;
+  max-width: 220px;          /* Default smaller on desktop */
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.carousel-slide img {
+.carousel-item img {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  border-radius: 10px;
 }
+
+/* 🔽 Mobile: Make each image larger */
+@media (max-width: 600px) {
+  .carousel-item {
+    max-width: 100%;
+  }
+}
+
+
 
 @keyframes scroll {
   0% {
