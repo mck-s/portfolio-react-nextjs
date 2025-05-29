@@ -32,7 +32,7 @@ export const translations = {
   en: {
     aboutTitle: "McK",
     aboutText:
-      "Bilingual Web Developer based in Tokyo, Japan",
+      "Bilingual Web Developer based in Tokyo, Japan. I like computer stuff.",
     projectsTitle: "Experience",
     project1Title: "Large-Scale Site Renewals",
     project1Desc: "Led two major website renewals for a high-profile SaaS company. Rebuilt both sites from scratch with different structures and server setups, managing everything from planning to launch (Tech stack: WordPress, PHP, HTML, CSS, JavaScript, Kinsta, MySQL (MariaDB), HubSpot (forms & chatbot), AWS (CloudFront Functions, Route 53))",

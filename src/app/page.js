@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import FloatingMenu from "./FloatingMenu";
+import ImageCarouselGrid from "./ImageCarouselGrid";
 import { translations } from "./lang";
 import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { Laptop, Code, Settings } from "lucide-react";
 
-// === RevealOnScroll ===
 function RevealOnScroll({ children }) {
   const ref = useRef(null);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -35,7 +35,6 @@ function RevealOnScroll({ children }) {
   );
 }
 
-// === Home Page Component ===
 export default function Home() {
   const [lang, setLang] = useState("jp");
   const [showHero, setShowHero] = useState(false);
@@ -73,7 +72,6 @@ export default function Home() {
       </header>
 
       <main>
-        {/* About */}
         <RevealOnScroll>
           {({ isVisible }) => (
             <section id="about-section" className="section">
@@ -86,28 +84,22 @@ export default function Home() {
                 />
                 <p>
                   {t.aboutText
-                    .split(/[。。\.]/)
-                    .filter(Boolean)
+  .replaceAll(/[⚪︎◯・⚫︎]/g, ".")
+  .split(/[。．.]/)
+                      .filter(Boolean)
                     .map((part, idx) => (
                       <span key={idx}>
-                        {part}。<br />
-                      </span>
+{part}{lang === "jp" ? "。" : "."}<br />
+</span>
                     ))}
                 </p>
-<div className="carousel-grid">
-  {[1, 2, 3].map((num) => (
-    <div key={num} className="carousel-item">
-      <img src={`/${num}.jpg`} alt={`carousel-${num}`} />
-    </div>
-  ))}
-</div>
-
               </div>
             </section>
           )}
         </RevealOnScroll>
 
-        {/* Skills */}
+        <ImageCarouselGrid />
+
         <section id="skills-section" className="section">
           <h2>{t.skillsTitle}</h2>
           <div className="skills-grid">
@@ -149,7 +141,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects */}
         <RevealOnScroll>
           {({ isVisible }) => (
             <section className="section">
@@ -165,9 +156,15 @@ export default function Home() {
                   };
 
                   return (
-                    <div key={num} className={`project-card ${openStates[index] ? "open" : ""}`}>
+                    <div
+                      key={num}
+                      className={`project-card ${openStates[index] ? "open" : ""}`}
+                    >
                       <div className="project-image">{iconComponents[num]}</div>
-                      <div className="project-title" onClick={() => toggleOpen(index)}>
+                      <div
+                        className="project-title"
+                        onClick={() => toggleOpen(index)}
+                      >
                         {title} <span className="chevron">{openStates[index] ? "▲" : "▼"}</span>
                       </div>
                       <div
@@ -184,27 +181,34 @@ export default function Home() {
           )}
         </RevealOnScroll>
 
-        {/* Passion Project */}
         <RevealOnScroll>
           {({ isVisible }) => (
-            <section className="section">
-              <h2>{t.passionTitle}</h2>
-              <div className={`passion-image-wrapper ${isVisible ? "animate" : ""}`}>
-                <img src="/book.png" alt="Passion Project" className="passion-image" />
-              </div>
-              <p className="passion-description">
-                {t.passionText
-                  .split(/[。\.]/)
-                  .filter(Boolean)
-                  .map((part, idx) => (
-                    <span key={idx}>{part.trim()}。<br /></span>
-                  ))}
-              </p>
-            </section>
+           <section className="section">
+  <h2>{t.passionTitle}</h2>
+  <div className="passion-image-wrapper">
+    <img
+      src="/book.png"
+      alt="Passion Project"
+      className="passion-image"
+    />
+  </div>
+  <p className="passion-description">
+    {t.passionText
+      .split(/[。\.]/)
+      .filter(Boolean)
+      .map((part, idx) => (
+        <span key={idx}>
+          {part.trim()}
+          {lang === "jp" ? "。" : "."}
+          <br />
+        </span>
+      ))}
+  </p>
+</section>
+
           )}
         </RevealOnScroll>
 
-        {/* Contact */}
         <RevealOnScroll>
           <section id="contact-section" className="section">
             <FaMapMarkerAlt style={{ color: "black" }} />
