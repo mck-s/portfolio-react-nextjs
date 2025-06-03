@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import FloatingMenu from "./FloatingMenu";
 import ImageCarouselGrid from "./ImageCarouselGrid";
+import Book from "./book";
 import { translations } from "./lang";
 import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { Laptop, Code, Settings } from "lucide-react";
@@ -186,11 +187,7 @@ export default function Home() {
            <section className="section">
   <h2>{t.passionTitle}</h2>
   <div className="passion-image-wrapper">
-    <img
-      src="/book.png"
-      alt="Passion Project"
-      className="passion-image"
-    />
+  <Book />
   </div>
   <p className="passion-description">
     {t.passionText
