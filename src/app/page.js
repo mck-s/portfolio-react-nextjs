@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import FloatingMenu from "./FloatingMenu";
 import ImageCarouselGrid from "./ImageCarouselGrid";
-import Book from "./book";
+import Book from "./Book";
 import { translations } from "./lang";
 import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { Laptop, Code, Settings } from "lucide-react";
