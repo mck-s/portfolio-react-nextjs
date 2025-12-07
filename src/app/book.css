@@ -1,0 +1,95 @@
+/* FlipBook.css */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .book {
+    perspective: 1000px;
+  }
+  
+  .small-book .pages {
+    width: 400px;       /* 2 pages at 200px each */
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  .page {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    transform-origin: 0 0;
+    transition: transform 1s;
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    cursor: pointer;
+  }
+  
+  /* Odd pages (right side) */
+  .page:nth-child(odd) {
+    right: 0;
+    transform: rotateY(0deg);
+    z-index: 1;
+  }
+  
+  /* Even pages (left side, flipped) */
+  .page:nth-child(even) {
+    left: 0;
+    transform: rotateY(180deg);
+    transform-origin: 100% 0;
+  }
+  
+  /* Flip animation */
+  .page.flipped:nth-child(odd) {
+    transform: rotateY(-180deg);
+    z-index: 0;
+  }
+  
+  .page.flipped:nth-child(even) {
+    transform: rotateY(0deg);
+    z-index: 2;
+  }
+  .book-wrapper {
+    position: relative;
+  }
+  
+  .arrow-right {
+    position: absolute;
+    left: -3rem; /* Adjust to position the arrow to the left of the book */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #4a5759;
+    z-index: 20;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    animation: wiggleRight 1.5s infinite ease-in-out;
+  }
+  
+  .arrow-right.hidden {
+    opacity: 0;
+  }
+  
+  /* Wiggle animation pointing right */
+  @keyframes wiggleRight {
+    0% { transform: translateY(-50%) translateX(0); }
+    25% { transform: translateY(-50%) translateX(4px); }
+    50% { transform: translateY(-50%) translateX(0); }
+    75% { transform: translateY(-50%) translateX(4px); }
+    100% { transform: translateY(-50%) translateX(0); }
+  }
+  
+  @media (max-width: 480px) {
+    .small-book .pages {
+      transform: scale(0.8);
+      transform-origin: top center;
+    }
+  }
+  
