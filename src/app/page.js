@@ -56,7 +56,7 @@ const styles = {
   projectCard: {
     background: "rgba(255, 255, 255, 0.85)",
     backdropFilter: "blur(8px)",
-    borderRadius: "12px",
+    borderRadius: "0px",
     padding: "30px",
     boxShadow:
       "0 4px 6px -1px rgba(74, 87, 89, 0.12), 0 2px 4px -1px rgba(74, 87, 89, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.35) inset",

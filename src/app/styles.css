@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -180,7 +182,7 @@ body.scrolled::before {
   flex-direction: column;
   gap: 10px;
   padding: 18px;
-  border-radius: 14px;
+  border-radius: 0;
   border: 1px solid rgba(74, 87, 89, 0.15);
   background: rgba(255, 255, 255, 0.9);
   color: #2c3e50;
@@ -193,16 +195,11 @@ body.scrolled::before {
 
 .note-thumb {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #e9eef2;
 }
 
 .note-thumb img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 

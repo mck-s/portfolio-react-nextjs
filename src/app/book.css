@@ -1,12 +1,10 @@
 /* FlipBook.css */
 
-body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+.book-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
   .book {
     perspective: 1000px;

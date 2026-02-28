@@ -29,10 +29,11 @@ export const translations = {
       "WordPress、HubSpot、STUDIOなど複数のCMSにおいて、運用・保守業務を担当。バグ修正、機能追加、サーバー対応、更新手順などの技術ドキュメント作成まで幅広く対応。",
     blogTitle: "技術ブログ",
     blogSubtitle:
-      "最新記事を自動でシャッフル表示しています。気になったら覗いてみてください。",
+      "ソフトウェアエンジニアとしての学びや挑戦を、等身大で綴る技術ブログです。",
     blogCta: "noteで読む",
     blogEmpty: "現在記事を読み込めません。noteでチェックできます。",
-    blogHint: "note.com が一時的に取得できない場合は、時間を置くと表示されます。",
+    blogHint:
+      "note.com が一時的に取得できない場合は、時間を置くと表示されます。",
     contactText: "東京都",
     skillsTitle: "スキル",
     skill1Title: "フロントエンド",
@@ -81,7 +82,7 @@ export const translations = {
       "Experienced in operating and maintaining various CMS platforms including WordPress, HubSpot, and STUDIO. Responsible for bug fixes, feature implementation, server management, and creating setup and deployment documentation.",
     blogTitle: "Tech Blog",
     blogSubtitle:
-      "Newest articles are auto-shuffled here. Drop by if something catches your eye.",
+      "Check out my tech blog where I keep a diary of my various adventures as a software engineer.",
     blogCta: "Read on note",
     blogEmpty: "Posts are unavailable right now. You can view them on note.",
     blogHint:

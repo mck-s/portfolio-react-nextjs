@@ -6,7 +6,10 @@ const MAX_ITEMS = 6;
 function extractFirstImage(html) {
   if (!html) return null;
   const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : null;
+  const url = match ? match[1] : null;
+  if (!url) return null;
+  if (url.startsWith("data:") || url.includes("emoji")) return null;
+  return url;
 }
 
 function shuffle(items) {
@@ -23,6 +26,7 @@ export async function GET() {
     const parser = new Parser({
       customFields: {
         item: [
+          "image",
           ["media:thumbnail", "media:thumbnail"],
           ["media:content", "media:content"],
           ["content:encoded", "content:encoded"],
@@ -39,9 +43,12 @@ export async function GET() {
         link: item.link,
         date: item.pubDate || item.isoDate || null,
         thumbnail:
+          item.image ||
           item.enclosure?.url ||
           item["media:thumbnail"]?.$?.url ||
+          item["media:thumbnail"] ||
           item["media:content"]?.$?.url ||
+          item["media:content"]?.url ||
           extractFirstImage(item["content:encoded"] || item.content) ||
           null,
       }));
