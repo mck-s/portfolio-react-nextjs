@@ -133,12 +133,40 @@ const styles = {
 export default function Home() {
   const [lang, setLang] = useState("jp");
   const [showHero, setShowHero] = useState(false);
+  const [notePosts, setNotePosts] = useState([]);
+  const [noteError, setNoteError] = useState(false);
   const t = translations[lang];
 
   useEffect(() => {
     const timer = setTimeout(() => setShowHero(true), 100);
     document.body.classList.add("loaded");
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const controller = new AbortController();
+
+    const load = async () => {
+      try {
+        const res = await fetch("/api/note", { signal: controller.signal });
+        if (!res.ok) throw new Error("Failed to load note feed");
+        const data = await res.json();
+        if (!cancelled) {
+          const items = Array.isArray(data.items) ? data.items : [];
+          setNotePosts(items);
+          setNoteError(items.length === 0);
+        }
+      } catch (error) {
+        if (!cancelled) setNoteError(true);
+      }
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {
@@ -152,6 +180,17 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const formatDate = (value) => {
+    if (!value) return "";
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString(lang === "jp" ? "ja-JP" : "en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
 
   return (
     <div className="App">
@@ -299,6 +338,65 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </section>
+          )}
+        </RevealOnScroll>
+
+        <RevealOnScroll>
+          {({ isVisible }) => (
+            <section id="blog-section" className="section note-section">
+              <div className="note-header">
+                <a
+                  href="https://note.com/makechan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="note-profile"
+                >
+                  <img src="/note.webp" alt="note profile" loading="lazy" />
+                </a>
+                <div className="note-header-text">
+                  <h2>{t.blogTitle}</h2>
+                  <p className="note-subtitle">{t.blogSubtitle}</p>
+                </div>
+              </div>
+
+              {notePosts.length > 0 ? (
+                <div className="note-grid">
+                  {notePosts.map((post) => (
+                    <a
+                      key={post.link}
+                      href={post.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`note-card ${isVisible ? "visible" : ""}`}
+                    >
+                      {post.thumbnail ? (
+                        <div className="note-thumb">
+                          <img
+                            src={post.thumbnail}
+                            alt={post.title}
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : null}
+                      <span className="note-title">{post.title}</span>
+                      <span className="note-date">
+                        {formatDate(post.date)}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <div className="note-empty">
+                  <p>{t.blogEmpty}</p>
+                </div>
+              )}
+
+              {noteError && (
+                <div className="note-hint">
+                  {t.blogHint}
+                </div>
+              )}
             </section>
           )}
         </RevealOnScroll>

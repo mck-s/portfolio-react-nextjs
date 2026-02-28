@@ -1,4 +1,11 @@
 // app/layout.js
+import { Noto_Serif_JP } from "next/font/google";
+
+const notoSerifJp = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 export const metadata = {
   title: "McK Schroeder - Portfolio Site",
   description:
@@ -9,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <head />
-      <body>{children}</body>
+      <body className={notoSerifJp.className}>{children}</body>
     </html>
   );
 }

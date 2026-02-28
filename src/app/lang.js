@@ -27,6 +27,12 @@ export const translations = {
     project3Title: "既存サイトの運用・保守・UX改善",
     project3Desc:
       "WordPress、HubSpot、STUDIOなど複数のCMSにおいて、運用・保守業務を担当。バグ修正、機能追加、サーバー対応、更新手順などの技術ドキュメント作成まで幅広く対応。",
+    blogTitle: "技術ブログ",
+    blogSubtitle:
+      "最新記事を自動でシャッフル表示しています。気になったら覗いてみてください。",
+    blogCta: "noteで読む",
+    blogEmpty: "現在記事を読み込めません。noteでチェックできます。",
+    blogHint: "note.com が一時的に取得できない場合は、時間を置くと表示されます。",
     contactText: "東京都",
     skillsTitle: "スキル",
     skill1Title: "フロントエンド",
@@ -73,6 +79,13 @@ export const translations = {
     project3Title: "Site Operation & Maintenance",
     project3Desc:
       "Experienced in operating and maintaining various CMS platforms including WordPress, HubSpot, and STUDIO. Responsible for bug fixes, feature implementation, server management, and creating setup and deployment documentation.",
+    blogTitle: "Tech Blog",
+    blogSubtitle:
+      "Newest articles are auto-shuffled here. Drop by if something catches your eye.",
+    blogCta: "Read on note",
+    blogEmpty: "Posts are unavailable right now. You can view them on note.",
+    blogHint:
+      "If note.com is temporarily unavailable, the posts will show after a while.",
     contactText: "Tokyo",
     skillsTitle: "Skills",
     skill1Title: "Frontend",
