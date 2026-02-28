@@ -20,7 +20,7 @@ function RevealOnScroll({ children }) {
           observer.unobserve(ref.current);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -380,9 +380,7 @@ export default function Home() {
                         </div>
                       ) : null}
                       <span className="note-title">{post.title}</span>
-                      <span className="note-date">
-                        {formatDate(post.date)}
-                      </span>
+                      <span className="note-date">{formatDate(post.date)}</span>
                     </a>
                   ))}
                 </div>
@@ -392,11 +390,7 @@ export default function Home() {
                 </div>
               )}
 
-              {noteError && (
-                <div className="note-hint">
-                  {t.blogHint}
-                </div>
-              )}
+              {noteError && <div className="note-hint">{t.blogHint}</div>}
             </section>
           )}
         </RevealOnScroll>
@@ -488,7 +482,7 @@ export default function Home() {
       <FloatingMenu lang={lang} setLang={setLang} />
 
       <footer className="footer">
-        <p>© 2025 McK Schroeder. All rights reserved.</p>
+        <p>© 2026 McK Schroeder. All rights reserved.</p>
       </footer>
     </div>
   );
