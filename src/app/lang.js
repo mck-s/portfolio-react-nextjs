@@ -38,10 +38,10 @@ export const translations = {
     skillsTitle: "スキル",
     skill1Title: "フロントエンド",
     skill1Item1: "HTML / CSS / JavaScript（6年）　",
-    skill1Item2: "React Native / TypeScript（1年）",
+    skill1Item2: "React Native / TypeScript（2年）",
     skill1Item3: "Cypress/Jest",
     skill2Title: "バックエンド",
-    skill2Item1: "Ruby（1年）",
+    skill2Item1: "Ruby（2年）",
     skill2Item2: "データベース操作（MySQL）",
     skill2Item3: "API連携・実装",
     skill3Title: "SRE / インフラ",
@@ -51,7 +51,8 @@ export const translations = {
     skill3Link: "https://sivasq.siva-s.com/posts/the-best-challenger",
     passionTitle: "My Passion",
     passionText:
-      "特別支援教育に携わるボランティアを始めて約10年。これまでに日本全国10校以上で、1,000人を超える子どもたちへの指導や教材作成を行ってきました。現在は、オリジナルの絵本をもとに、多様な学習ニーズに対応したインタラクティブなウェブサイトを開発しています。",
+      "特別支援教育に携わるボランティアを始めて約10年。これまでに日本全国10校以上で、1,000人を超える子どもたちへの指導や教材作成を行ってきました。オリジナルの絵本『Look for Fuji』をデジタル出版し、その物語をもとに多様な学習ニーズに対応したインタラクティブなウェブサイトも公開しました。",
+    passionLinkLabel: "絵本を見る",
   },
   en: {
     aboutTitle: "McK",
@@ -91,11 +92,11 @@ export const translations = {
     skillsTitle: "Skills",
     skill1Title: "Frontend",
     skill1Item1: "HTML / CSS / JavaScript (6 years)",
-    skill1Item2: "React / TypeScript / Next.js (1 year)",
+    skill1Item2: "React / TypeScript / Next.js (2 years)",
     skill1Item3: "Cypress/Jest",
 
     skill2Title: "Backend",
-    skill2Item1: "Ruby (1 year)",
+    skill2Item1: "Ruby (2 years)",
     skill2Item2: "Database operations (MySQL)",
     skill2Item3: "API integration & implementation",
 
@@ -106,6 +107,7 @@ export const translations = {
     skill3Link: "https://sivasq.siva-s.com/posts/the-best-challenger",
     passionTitle: "Passion Project",
     passionText:
-      "I've spent nearly 10 years volunteering in special education, working with over 10 schools across Japan. During that time, I’ve taught and created learning materials for more than 1,000 students. I'm currently developing an interactive website based on an original children’s book, tailored for diverse learning needs.",
+      "I've spent nearly a decade volunteering in special education, working with more than 10 schools across Japan and creating learning materials for 1,000+ students. I digitally published my original children’s book, “Look for Fuji,” and built a live interactive website based on the story to support diverse learning needs.",
+    passionLinkLabel: "Read the Book",
   },
 };

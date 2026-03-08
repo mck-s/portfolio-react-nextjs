@@ -58,9 +58,8 @@ const styles = {
     backdropFilter: "blur(8px)",
     borderRadius: "0px",
     padding: "30px",
-    boxShadow:
-      "0 4px 6px -1px rgba(74, 87, 89, 0.12), 0 2px 4px -1px rgba(74, 87, 89, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.35) inset",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    boxShadow: "none",
+    transition: "transform 0.3s ease",
     cursor: "default",
   },
   iconContainer: {
@@ -461,6 +460,15 @@ export default function Home() {
                     </span>
                   ))}
               </p>
+              <a
+                href="https://lookforfuji.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="store-button store-button--active"
+              >
+                {t.passionLinkLabel}{" "}
+                <ExternalLink size={14} style={styles.linkIcon} />
+              </a>
             </section>
           )}
         </RevealOnScroll>

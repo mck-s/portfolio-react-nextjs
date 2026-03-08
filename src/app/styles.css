@@ -92,11 +92,8 @@ body.scrolled::before {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-radius: 0;
-  box-shadow:
-    0 4px 6px -1px rgba(74, 87, 89, 0.1),
-    0 2px 4px -1px rgba(74, 87, 89, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
-  transition: box-shadow 0.3s ease;
+  box-shadow: none;
+  transition: none;
   width: calc(100% - 2cm);
   max-width: none;
 }
@@ -150,7 +147,7 @@ body.scrolled::before {
   border: 1px solid rgba(74, 87, 89, 0.2);
   background: #fff;
   flex: 0 0 auto;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .note-profile img {
@@ -162,7 +159,6 @@ body.scrolled::before {
 
 .note-profile:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 18px rgba(74, 87, 89, 0.2);
 }
 
 .note-subtitle {
@@ -187,10 +183,9 @@ body.scrolled::before {
   background: rgba(255, 255, 255, 0.9);
   color: #2c3e50;
   text-decoration: none;
-  box-shadow: 0 6px 14px rgba(74, 87, 89, 0.1);
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .note-thumb {
@@ -206,10 +201,6 @@ body.scrolled::before {
 .note-card.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.note-card:hover {
-  box-shadow: 0 12px 22px rgba(74, 87, 89, 0.18);
 }
 
 .note-title {
@@ -394,19 +385,13 @@ a:hover {
   height: 120px;
   border-radius: 24px;
   object-fit: cover;
-  box-shadow: none;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.25s ease;
 }
 
 .mobile-icon:hover {
   transform: translateY(-6px);
-  box-shadow:
-    inset 0 1px 4px rgba(255, 255, 255, 0.8),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.08),
-    0 12px 28px rgba(0, 0, 0, 0.16);
 }
 
 .contact-info {
