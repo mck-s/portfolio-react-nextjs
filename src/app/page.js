@@ -389,6 +389,41 @@ export default function Home() {
                 </div>
               )}
 
+              <div className="company-blog-block">
+                <div className="company-blog-header">
+                  <h3>{t.companyBlogTitle}</h3>
+                  <p className="company-blog-subtitle">{t.companyBlogSubtitle}</p>
+                </div>
+                <div className="company-blog-grid">
+                  {t.companyBlogPosts.map((post) => (
+                    <a
+                      key={post.url}
+                      href={post.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`company-blog-card ${isVisible ? "visible" : ""}`}
+                    >
+                      {post.image ? (
+                        <div className="company-blog-thumb">
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : null}
+                      <span className="company-blog-domain">
+                        tech.i3design.jp
+                      </span>
+                      <span className="company-blog-cta">
+                        {t.companyBlogCta}{" "}
+                        <ExternalLink size={14} style={styles.linkIcon} />
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               {noteError && <div className="note-hint">{t.blogHint}</div>}
             </section>
           )}

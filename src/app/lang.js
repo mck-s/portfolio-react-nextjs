@@ -3,7 +3,7 @@ export const translations = {
   jp: {
     aboutTitle: "マケイ",
     aboutText:
-      "東京在住のバイリンガルMobile/Web開発者。スマートで構造的、かつクリエイティブなWeb体験を創り上げます。",
+      "東京在住のバイリンガルMobile/Web開発者。スマートで創造的なデジタル体験を創ります。",
     projectsTitle: "実績",
     projectsWebDevTitle: "Web開発",
     projectsMobileDevTitle: "Mobile開発",
@@ -27,27 +27,51 @@ export const translations = {
     project3Title: "既存サイトの運用・保守・UX改善",
     project3Desc:
       "WordPress、HubSpot、STUDIOなど複数のCMSにおいて、運用・保守業務を担当。バグ修正、機能追加、サーバー対応、更新手順などの技術ドキュメント作成まで幅広く対応。",
-    blogTitle: "技術ブログ",
+    blogTitle: "個人技術ブログ",
     blogSubtitle:
       "ソフトウェアエンジニアとしての学びや挑戦を、等身大で綴る技術ブログです。",
     blogCta: "noteで読む",
     blogEmpty: "現在記事を読み込めません。noteでチェックできます。",
     blogHint:
       "note.com が一時的に取得できない場合は、時間を置くと表示されます。",
+    companyBlogTitle: "掲載技術記事",
+    companyBlogSubtitle:
+      "会社のテックブログで公開した技術記事です。",
+    companyBlogCta: "記事を読む",
+    companyBlogPosts: [
+      {
+        title: "Stencilでつくるデザインシステム 2",
+        url: "https://tech.i3design.jp/design-system-stencil-2/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1-1.png",
+      },
+      {
+        title: "Stencilでつくるデザインシステム 1",
+        url: "https://tech.i3design.jp/design-system-stencil-1/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1.png",
+      },
+      {
+        title: "RAGにおける権限設計",
+        url: "https://tech.i3design.jp/rag-permission-design/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/rag-permission-design-mv.png",
+      },
+    ],
     contactText: "東京都",
     skillsTitle: "スキル",
     skill1Title: "フロントエンド",
-    skill1Item1: "HTML / CSS / JavaScript（6年）　",
-    skill1Item2: "React Native / TypeScript（2年）",
-    skill1Item3: "Cypress/Jest",
+    skill1Item1: "HTML / CSS / JavaScriptでの開発（6年）",
+    skill1Item2: "React Native / TypeScriptでのアプリ開発（2年）",
+    skill1Item3: "Cypress / Jestを用いたテスト設計・実装",
     skill2Title: "バックエンド",
-    skill2Item1: "Ruby（2年）",
-    skill2Item2: "データベース操作（MySQL）",
-    skill2Item3: "API連携・実装",
+    skill2Item1: "Rubyを用いたバックエンド開発（2年）",
+    skill2Item2: "MySQLでのデータベース運用 / Supabaseでのバックエンド構築",
+    skill2Item3: "外部APIの連携設計・実装",
     skill3Title: "SRE / インフラ",
-    skill3Item1: "DNS設計・管理",
-    skill3Item2: "サーバー構成・運用",
-    skill3Item3: "Cloud Functions（自動化処理）",
+    skill3Item1: "DNSの設計・運用",
+    skill3Item2: "サーバー構成の設計・保守運用",
+    skill3Item3: "Cloud Functionsを用いた自動化処理",
     skill3Link: "https://sivasq.siva-s.com/posts/the-best-challenger",
     passionTitle: "My Passion",
     passionText:
@@ -81,29 +105,53 @@ export const translations = {
     project3Title: "Site Operation & Maintenance",
     project3Desc:
       "Experienced in operating and maintaining various CMS platforms including WordPress, HubSpot, and STUDIO. Responsible for bug fixes, feature implementation, server management, and creating setup and deployment documentation.",
-    blogTitle: "Tech Blog",
+    blogTitle: "Personal Tech Blog",
     blogSubtitle:
       "Check out my tech blog where I keep a diary of my various adventures as a software engineer.",
     blogCta: "Read on note",
     blogEmpty: "Posts are unavailable right now. You can view them on note.",
     blogHint:
       "If note.com is temporarily unavailable, the posts will show after a while.",
+    companyBlogTitle: "Published Tech Articles",
+    companyBlogSubtitle:
+      "Technical articles published on my company's tech blog.",
+    companyBlogCta: "Read article",
+    companyBlogPosts: [
+      {
+        title: "Design Systems with Stencil 2",
+        url: "https://tech.i3design.jp/design-system-stencil-2/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1-1.png",
+      },
+      {
+        title: "Design Systems with Stencil 1",
+        url: "https://tech.i3design.jp/design-system-stencil-1/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1.png",
+      },
+      {
+        title: "Permission Design for RAG",
+        url: "https://tech.i3design.jp/rag-permission-design/",
+        image:
+          "https://tech.i3design.jp/wp-content/uploads/2026/03/rag-permission-design-mv.png",
+      },
+    ],
     contactText: "Tokyo",
     skillsTitle: "Skills",
     skill1Title: "Frontend",
-    skill1Item1: "HTML / CSS / JavaScript (6 years)",
-    skill1Item2: "React / TypeScript / Next.js (2 years)",
-    skill1Item3: "Cypress/Jest",
+    skill1Item1: "Frontend development with HTML, CSS, and JavaScript (6 years)",
+    skill1Item2: "App development with React Native and TypeScript (2 years)",
+    skill1Item3: "Test design and implementation with Cypress and Jest",
 
     skill2Title: "Backend",
-    skill2Item1: "Ruby (2 years)",
-    skill2Item2: "Database operations (MySQL)",
-    skill2Item3: "API integration & implementation",
+    skill2Item1: "Backend development with Ruby (2 years)",
+    skill2Item2: "Database operations with MySQL / backend development with Supabase",
+    skill2Item3: "External API integration and implementation",
 
     skill3Title: "SRE / Infrastructure",
-    skill3Item1: "DNS design & management",
-    skill3Item2: "Server setup & operations",
-    skill3Item3: "Cloud Functions (automation tasks)",
+    skill3Item1: "DNS design and operations",
+    skill3Item2: "Server architecture, maintenance, and operations",
+    skill3Item3: "Automation workflows with Cloud Functions",
     skill3Link: "https://sivasq.siva-s.com/posts/the-best-challenger",
     passionTitle: "Passion Project",
     passionText:
