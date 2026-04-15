@@ -208,7 +208,7 @@ export default function Home() {
                   alt="About"
                   className={`about-image ${isVisible ? "animate" : ""}`}
                 />
-                <p>
+                <p className="about-copy">
                   {t.aboutText
                     .replaceAll(/[⚪︎◯・⚫︎]/g, ".")
                     .split(/[。．.]/)
@@ -221,6 +221,19 @@ export default function Home() {
                       </span>
                     ))}
                 </p>
+                <div className={`about-timeline ${isVisible ? "visible" : ""}`}>
+                  {t.aboutTimeline.map((item, idx) => (
+                    <div
+                      key={`${item.year}-${idx}`}
+                      className="about-timeline-item"
+                      style={{ transitionDelay: `${idx * 140}ms` }}
+                    >
+                      <div className="about-timeline-marker" aria-hidden="true" />
+                      <div className="about-timeline-year">{item.year}</div>
+                      <p className="about-timeline-text">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
           )}
@@ -240,7 +253,7 @@ export default function Home() {
                   </div>
                   <h3 style={styles.projectTitle}>{t.projectsWebDevTitle}</h3>
                   <div style={styles.projectsList}>
-                    {[1, 2, 3].map((num) => (
+                    {[1, 2, 3, 4].map((num) => (
                       <div key={num} style={styles.projectItem}>
                         <h4 style={styles.projectSubtitle}>
                           {t[`project${num}Title`]}
