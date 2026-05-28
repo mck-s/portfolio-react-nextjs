@@ -191,6 +191,18 @@ export default function Home() {
     });
   };
 
+  const getNotePostLink = (link) => {
+    if (lang !== "en") return link;
+
+    try {
+      const url = new URL(link);
+      url.searchParams.set("hl", "en");
+      return url.toString();
+    } catch {
+      return link;
+    }
+  };
+
   return (
     <div className="App">
       <header className={`hero ${showHero ? "visible" : ""}`}>
@@ -377,7 +389,7 @@ export default function Home() {
                   {notePosts.map((post) => (
                     <a
                       key={post.link}
-                      href={post.link}
+                      href={getNotePostLink(post.link)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`note-card ${isVisible ? "visible" : ""}`}
