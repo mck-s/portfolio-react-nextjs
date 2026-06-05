@@ -142,13 +142,16 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Re-fetch note posts whenever lang changes so titles update
   useEffect(() => {
     let cancelled = false;
     const controller = new AbortController();
 
     const load = async () => {
       try {
-        const res = await fetch("/api/note", { signal: controller.signal });
+        const res = await fetch(`/api/note?lang=${lang}`, {
+          signal: controller.signal,
+        });
         if (!res.ok) throw new Error("Failed to load note feed");
         const data = await res.json();
         if (!cancelled) {
@@ -166,7 +169,7 @@ export default function Home() {
       cancelled = true;
       controller.abort();
     };
-  }, []);
+  }, [lang]); // <-- lang in dependency array
 
   useEffect(() => {
     const handleScroll = () => {
@@ -240,7 +243,10 @@ export default function Home() {
                       className="about-timeline-item"
                       style={{ transitionDelay: `${idx * 140}ms` }}
                     >
-                      <div className="about-timeline-marker" aria-hidden="true" />
+                      <div
+                        className="about-timeline-marker"
+                        aria-hidden="true"
+                      />
                       <div className="about-timeline-year">{item.year}</div>
                       <p className="about-timeline-text">{item.text}</p>
                     </div>
@@ -417,7 +423,9 @@ export default function Home() {
               <div className="company-blog-block">
                 <div className="company-blog-header">
                   <h3>{t.companyBlogTitle}</h3>
-                  <p className="company-blog-subtitle">{t.companyBlogSubtitle}</p>
+                  <p className="company-blog-subtitle">
+                    {t.companyBlogSubtitle}
+                  </p>
                 </div>
                 <div className="company-blog-grid">
                   {t.companyBlogPosts.map((post) => (

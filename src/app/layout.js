@@ -8,7 +8,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <head />
+      <head>
+        <link rel="preload" as="image" href="/bg.webp" fetchPriority="high" />
+      </head>
       <body>{children}</body>
     </html>
   );
