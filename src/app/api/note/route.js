@@ -1,11 +1,12 @@
 import Parser from "rss-parser";
 
 const FEED_URL = "https://note.com/makechan/rss";
-const MAX_ITEMS = 6;
+const MAX_ITEMS = 10;
 
 // In-memory cache: { [link]: { enTitle, fetchedAt } }
 const enTitleCache = {};
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+const JAPANESE_TEXT_PATTERN = /[\u3040-\u30ff\u3400-\u9fff]/;
 
 function extractFirstImage(html) {
   if (!html) return null;
@@ -16,13 +17,27 @@ function extractFirstImage(html) {
   return url;
 }
 
-function shuffle(items) {
-  const arr = [...items];
-  for (let i = arr.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+function decodeHtmlEntities(value) {
+  if (!value) return "";
+
+  return value
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
+      String.fromCharCode(parseInt(code, 16)),
+    );
+}
+
+function normalizeNoteTitle(value) {
+  return decodeHtmlEntities(value).replace(/\s*[|｜].*$/, "").trim();
+}
+
+function isEnglishTitle(value) {
+  return value && !JAPANESE_TEXT_PATTERN.test(value);
 }
 
 async function fetchEnTitle(link) {
@@ -41,7 +56,7 @@ async function fetchEnTitle(link) {
     if (!res.ok) return null;
     const html = await res.text();
 
-    // Try og:title first, fall back to <title>
+    // Try og:title first, fall back to <title>.
     const ogMatch =
       html.match(
         /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
@@ -50,17 +65,20 @@ async function fetchEnTitle(link) {
         /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i,
       );
     if (ogMatch) {
-      const enTitle = ogMatch[1].trim();
-      enTitleCache[link] = { enTitle, fetchedAt: Date.now() };
-      return enTitle;
+      const enTitle = normalizeNoteTitle(ogMatch[1]);
+      if (isEnglishTitle(enTitle)) {
+        enTitleCache[link] = { enTitle, fetchedAt: Date.now() };
+        return enTitle;
+      }
     }
 
     const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch) {
-      // note's <title> often has " | note" suffix — strip it
-      const enTitle = titleMatch[1].replace(/\s*\|.*$/, "").trim();
-      enTitleCache[link] = { enTitle, fetchedAt: Date.now() };
-      return enTitle;
+      const enTitle = normalizeNoteTitle(titleMatch[1]);
+      if (isEnglishTitle(enTitle)) {
+        enTitleCache[link] = { enTitle, fetchedAt: Date.now() };
+        return enTitle;
+      }
     }
   } catch {
     // fall through to null
@@ -92,7 +110,7 @@ export async function GET(request) {
       .sort((a, b) => new Date(b.pubDate || 0) - new Date(a.pubDate || 0))
       .slice(0, MAX_ITEMS);
 
-    // Fetch English titles in parallel if needed
+    // Fetch English titles in parallel if needed.
     const enTitles = isEnglish
       ? await Promise.all(rawItems.map((item) => fetchEnTitle(item.link)))
       : rawItems.map(() => null);
@@ -112,13 +130,11 @@ export async function GET(request) {
         null,
     }));
 
-    const shuffled = shuffle(items);
-
     return Response.json(
-      { items: shuffled },
+      { items },
       {
         headers: {
-          "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400",
+          "Cache-Control": "no-store",
         },
       },
     );

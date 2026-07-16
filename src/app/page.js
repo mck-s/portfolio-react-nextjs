@@ -38,7 +38,7 @@ function RevealOnScroll({ children }) {
 
 const styles = {
   section: {
-    padding: "60px 20px",
+    padding: "40px 20px 60px",
     maxWidth: "1200px",
     margin: "0 auto",
   },
@@ -151,6 +151,7 @@ export default function Home() {
       try {
         const res = await fetch(`/api/note?lang=${lang}`, {
           signal: controller.signal,
+          cache: "no-store",
         });
         if (!res.ok) throw new Error("Failed to load note feed");
         const data = await res.json();
@@ -216,48 +217,53 @@ export default function Home() {
         <RevealOnScroll>
           {({ isVisible }) => (
             <section id="about-section" className="section">
-              <h2>{t.aboutTitle}</h2>
               <div className="about-content">
-                <img
-                  src="/mck.jpg"
-                  alt="About"
-                  className={`about-image ${isVisible ? "animate" : ""}`}
-                />
-                <p className="about-copy">
-                  {t.aboutText
-                    .replaceAll(/[⚪︎◯・⚫︎]/g, ".")
-                    .split(/[。．.]/)
-                    .filter(Boolean)
-                    .map((part, idx) => (
-                      <span key={idx}>
-                        {part}
-                        {lang === "jp" ? "。" : "."}
-                        <br />
-                      </span>
-                    ))}
-                </p>
-                <div className={`about-timeline ${isVisible ? "visible" : ""}`}>
-                  {t.aboutTimeline.map((item, idx) => (
-                    <div
-                      key={`${item.year}-${idx}`}
-                      className="about-timeline-item"
-                      style={{ transitionDelay: `${idx * 140}ms` }}
-                    >
+                <div className="about-profile">
+                  <img
+                    src="/mck.jpg"
+                    alt="About"
+                    className={`about-image ${isVisible ? "animate" : ""}`}
+                  />
+                  <h2 className="about-name">{t.aboutTitle}</h2>
+                  <p className="about-copy">
+                    {t.aboutText
+                      .replaceAll(/[⚪︎◯・⚫︎]/g, ".")
+                      .split(/[。．.]/)
+                      .filter(Boolean)
+                      .map((part, idx) => (
+                        <span key={idx}>
+                          {part}
+                          {lang === "jp" ? "。" : "."}
+                          <br />
+                        </span>
+                      ))}
+                  </p>
+                </div>
+                <div className="about-details">
+                  <ImageCarouselGrid />
+                  <div
+                    className={`about-timeline ${isVisible ? "visible" : ""}`}
+                  >
+                    {t.aboutTimeline.map((item, idx) => (
                       <div
-                        className="about-timeline-marker"
-                        aria-hidden="true"
-                      />
-                      <div className="about-timeline-year">{item.year}</div>
-                      <p className="about-timeline-text">{item.text}</p>
-                    </div>
-                  ))}
+                        key={`${item.year}-${idx}`}
+                        className="about-timeline-item"
+                        style={{ transitionDelay: `${idx * 140}ms` }}
+                      >
+                        <div
+                          className="about-timeline-marker"
+                          aria-hidden="true"
+                        />
+                        <div className="about-timeline-year">{item.year}</div>
+                        <p className="about-timeline-text">{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>
           )}
         </RevealOnScroll>
-
-        <ImageCarouselGrid />
 
         <RevealOnScroll>
           {({ isVisible }) => (
@@ -271,7 +277,7 @@ export default function Home() {
                   </div>
                   <h3 style={styles.projectTitle}>{t.projectsWebDevTitle}</h3>
                   <div style={styles.projectsList}>
-                    {[1, 2, 3, 4].map((num) => (
+                    {[5, 1, 2, 4].map((num) => (
                       <div key={num} style={styles.projectItem}>
                         <h4 style={styles.projectSubtitle}>
                           {t[`project${num}Title`]}
@@ -445,6 +451,7 @@ export default function Home() {
                           />
                         </div>
                       ) : null}
+                      <span className="company-blog-title">{post.title}</span>
                       <span className="company-blog-domain">
                         tech.i3design.jp
                       </span>
@@ -465,8 +472,8 @@ export default function Home() {
         <section id="skills-section" className="section">
           <h2>{t.skillsTitle}</h2>
           <div className="skills-grid">
-            {["skill1", "skill2", "skill3"].map((key, index) => (
-              <RevealOnScroll key={key}>
+            {t.skills.map((skill, index) => (
+              <RevealOnScroll key={skill.title}>
                 {({ isVisible }) => (
                   <div className="skill-category">
                     <div
@@ -475,30 +482,19 @@ export default function Home() {
                       }`}
                     >
                       <div className={`skill-title skill-color-${index}`}>
-                        {t[`${key}Title`]}
+                        {skill.title}
                       </div>
-                      {index === 2 && (
-                        <a
-                          href={t[`${key}Link`]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="read-more-btn"
-                          style={{ animationDelay: `${0.5 + index * 0.2}s` }}
-                        >
-                          READ MORE ↗
-                        </a>
-                      )}
                     </div>
                     <div className="skill-items">
-                      {[1, 2, 3].map((i, itemIndex) => (
+                      {skill.items.map((item, itemIndex) => (
                         <div
-                          key={i}
+                          key={item}
                           className="skill-item"
                           style={{
                             animationDelay: `${0.4 + itemIndex * 0.2}s`,
                           }}
                         >
-                          {t[`${key}Item${i}`]}
+                          {item}
                         </div>
                       ))}
                     </div>
