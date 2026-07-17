@@ -174,7 +174,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 24) {
         document.body.classList.add("scrolled");
       } else {
         document.body.classList.remove("scrolled");
@@ -182,6 +182,60 @@ export default function Home() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    let hasAdvancedToAbout = false;
+    let touchStartY = 0;
+
+    const scrollToAbout = () => {
+      const aboutContent = document.querySelector("#about-section .about-content");
+      if (!aboutContent || hasAdvancedToAbout || window.scrollY > 12) return;
+
+      hasAdvancedToAbout = true;
+      const rect = aboutContent.getBoundingClientRect();
+      const targetY =
+        window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2;
+
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: "smooth",
+      });
+    };
+
+    const handleWheel = (event) => {
+      if (event.deltaY > 0) scrollToAbout();
+    };
+
+    const handleTouchStart = (event) => {
+      touchStartY = event.touches[0]?.clientY ?? 0;
+    };
+
+    const handleTouchMove = (event) => {
+      const currentY = event.touches[0]?.clientY ?? touchStartY;
+      if (touchStartY - currentY > 12) scrollToAbout();
+    };
+
+    const handleKeyDown = (event) => {
+      if (
+        ["ArrowDown", "PageDown", "Space"].includes(event.code) ||
+        ["ArrowDown", "PageDown", " "].includes(event.key)
+      ) {
+        scrollToAbout();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const formatDate = (value) => {
@@ -209,9 +263,7 @@ export default function Home() {
 
   return (
     <div className="App">
-      <header className={`hero ${showHero ? "visible" : ""}`}>
-        <div className="hero-content" />
-      </header>
+      <header className={`hero ${showHero ? "visible" : ""}`} />
 
       <main>
         <RevealOnScroll>

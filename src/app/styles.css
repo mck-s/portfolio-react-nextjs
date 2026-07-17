@@ -66,7 +66,7 @@ body.scrolled::before {
 .hero {
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: clamp(160px, 28vh, 280px);
   opacity: 1;
   transition: opacity 0.8s ease;
   position: relative;
@@ -74,11 +74,6 @@ body.scrolled::before {
 
 .hero.scrolled {
   opacity: 0.4;
-}
-
-.hero-content {
-  width: 100%;
-  height: 100%;
 }
 
 .hero.visible {
@@ -100,7 +95,7 @@ body.scrolled::before {
 
 #about-section {
   padding: 40px 20px;
-  margin: 40px auto 0;
+  margin: 24px auto 0;
 }
 
 .projects {
@@ -632,6 +627,10 @@ a:hover {
   }
 }
 @media (max-width: 768px) {
+  .hero {
+    height: clamp(120px, 24vh, 220px);
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
