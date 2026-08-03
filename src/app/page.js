@@ -440,7 +440,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="note-profile"
                 >
-                  <img src="/note.webp" alt="note profile" loading="lazy" />
+                  <img src="/note.png" alt="note profile" loading="lazy" />
                 </a>
                 <div className="note-header-text">
                   <h2>{t.blogTitle}</h2>
