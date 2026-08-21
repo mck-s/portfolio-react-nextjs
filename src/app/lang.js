@@ -60,6 +60,13 @@ export const translations = {
     companyBlogCta: "記事を読む",
     companyBlogPosts: [
       {
+        title:
+          "QAエンジニア×UXデザイナーが語る、信頼されるAIプロダクトの評価設計",
+        url: "https://www.i3design.jp/in-pocket/qa-ux-interview/",
+        image:
+          "https://www.i3design.jp/in-pocket/wp-content/uploads/2026/08/qa-ux-interview.png",
+      },
+      {
         title: "Stencilでつくるデザインシステム 2",
         url: "https://tech.i3design.jp/design-system-stencil-2/",
         image:
@@ -178,6 +185,13 @@ export const translations = {
       "Technical articles published on my company's tech blog.",
     companyBlogCta: "Read article",
     companyBlogPosts: [
+      {
+        title:
+          "Evaluation Design for Trustworthy AI Products: A QA Engineer × UX Designer Interview",
+        url: "https://www.i3design.jp/in-pocket/qa-ux-interview/",
+        image:
+          "https://www.i3design.jp/in-pocket/wp-content/uploads/2026/08/qa-ux-interview.png",
+      },
       {
         title: "Design Systems with Stencil 2",
         url: "https://tech.i3design.jp/design-system-stencil-2/",

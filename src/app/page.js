@@ -505,7 +505,7 @@ export default function Home() {
                       ) : null}
                       <span className="company-blog-title">{post.title}</span>
                       <span className="company-blog-domain">
-                        tech.i3design.jp
+                        {new URL(post.url).hostname}
                       </span>
                       <span className="company-blog-cta">
                         {t.companyBlogCta}{" "}
