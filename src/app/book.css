@@ -84,10 +84,13 @@
     100% { transform: translateY(-50%) translateX(0); }
   }
   
-  @media (max-width: 480px) {
-    .small-book .pages {
-      transform: scale(0.8);
-      transform-origin: top center;
+  /* The spread is a fixed 400px wide, so scale the whole wrapper (arrow
+     included) down to fit narrow screens instead of letting it get clipped. */
+  @media (max-width: 560px) {
+    .book-wrapper {
+      transform: scale(0.72);
+      transform-origin: center top;
+      margin-bottom: -56px; /* reclaim the 200px box the scale no longer fills */
     }
   }
   

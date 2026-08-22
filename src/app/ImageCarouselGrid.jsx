@@ -13,7 +13,7 @@ const CASCADE_DELAY = 600;
 
 export default function ImageCarouselGrid() {
   return (
-    <div className="flex justify-center gap-4 w-full max-w-5xl mx-auto">
+    <div className="carousel-grid">
       {imageSets.map((set, i) => (
         <CascadeBlock key={i} images={set} delay={i * CASCADE_DELAY} />
       ))}
@@ -48,14 +48,12 @@ function CascadeBlock({ images, delay }) {
   }, [delay, images.length]);
 
   return (
-    <div className="relative w-full aspect-[16/9] max-w-[180px] rounded-md overflow-hidden shadow-lg">
+    <div className="carousel-block">
       <img
         loading="lazy"
         src={images[currentIndex]}
         alt={`img-${currentIndex}`}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-          isTransitioning ? "opacity-0" : "opacity-100"
-        }`}
+        className={`carousel-image ${isTransitioning ? "is-fading" : ""}`}
       />
     </div>
   );

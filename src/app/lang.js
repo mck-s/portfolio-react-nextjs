@@ -3,7 +3,7 @@ export const translations = {
   jp: {
     aboutTitle: "マケイ",
     aboutText:
-      "東京在住のバイリンガル フロントエンドエンジニア。複雑な課題を、シンプルで使いやすいプロダクトへ。",
+      "東京在住のバイリンガル フルスタックエンジニア。複雑な課題を、シンプルで使いやすいプロダクトへ。",
     aboutTimeline: [
       {
         year: "2018",
@@ -15,11 +15,15 @@ export const translations = {
       },
       {
         year: "2024",
-        text: "SaaS テックリード",
+        text: "Web制作テックリード",
       },
       {
         year: "2025",
-        text: "リードエンジニア（Web / Mobile）",
+        text: "フロントエンドリードエンジニア（Web / Mobile）",
+      },
+      {
+        year: "2026",
+        text: "フルスタックエンジニア",
       },
     ],
     projectsTitle: "実績",
@@ -67,19 +71,21 @@ export const translations = {
           "https://www.i3design.jp/in-pocket/wp-content/uploads/2026/08/qa-ux-interview.png",
       },
       {
-        title: "Stencilでつくるデザインシステム 2",
+        title:
+          "AI × Stencil.jsで進めるデザインシステム実装 ― コンポーネント設計の難所と配布まで",
         url: "https://tech.i3design.jp/design-system-stencil-2/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1-1.png",
       },
       {
-        title: "Stencilでつくるデザインシステム 1",
+        title:
+          "AI × Stencil.jsで進めるデザインシステム実装ガイド ― Tokens Studio から Web Components へつなぐ",
         url: "https://tech.i3design.jp/design-system-stencil-1/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1.png",
       },
       {
-        title: "RAGにおける権限設計",
+        title: "RAG入門：検索精度の前に考えたい権限設計のポイント",
         url: "https://tech.i3design.jp/rag-permission-design/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/rag-permission-design-mv.png",
@@ -128,7 +134,7 @@ export const translations = {
   en: {
     aboutTitle: "McK",
     aboutText:
-      "Bilingual Frontend Engineer based in Tokyo, Japan. Turning complex systems into simple, intuitive products.",
+      "Bilingual Full-Stack Engineer based in Tokyo, Japan. Turning complex systems into simple, intuitive products.",
     aboutTimeline: [
       {
         year: "2018",
@@ -140,11 +146,15 @@ export const translations = {
       },
       {
         year: "2024",
-        text: "SaaS Tech Lead",
+        text: "Web Production Tech Lead",
       },
       {
         year: "2025",
-        text: "Lead Engineer (Web / Mobile)",
+        text: "Lead Frontend Engineer (Web / Mobile)",
+      },
+      {
+        year: "2026",
+        text: "Full-Stack Engineer",
       },
     ],
     projectsTitle: "Experience",
@@ -193,19 +203,22 @@ export const translations = {
           "https://www.i3design.jp/in-pocket/wp-content/uploads/2026/08/qa-ux-interview.png",
       },
       {
-        title: "Design Systems with Stencil 2",
+        title:
+          "Design System Implementation with AI × Stencil.js — Component Design Pitfalls and Distribution",
         url: "https://tech.i3design.jp/design-system-stencil-2/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1-1.png",
       },
       {
-        title: "Design Systems with Stencil 1",
+        title:
+          "A Guide to Design System Implementation with AI × Stencil.js — Connecting Tokens Studio to Web Components",
         url: "https://tech.i3design.jp/design-system-stencil-1/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/design-system-stencil-1.png",
       },
       {
-        title: "Permission Design for RAG",
+        title:
+          "Introduction to RAG: Permission Design to Consider Before Search Accuracy",
         url: "https://tech.i3design.jp/rag-permission-design/",
         image:
           "https://tech.i3design.jp/wp-content/uploads/2026/03/rag-permission-design-mv.png",

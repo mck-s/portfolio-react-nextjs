@@ -13,17 +13,24 @@ function RevealOnScroll({ children }) {
   const [isRevealed, setIsRevealed] = useState(false);
 
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsRevealed(true);
-          observer.unobserve(ref.current);
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 },
+      // A ratio-based threshold never fires for sections that are taller than
+      // a few viewports (which is what happens once the grids collapse to a
+      // single column on phones), so trigger on first pixel instead and use a
+      // bottom margin to hold back the reveal until it is properly in view.
+      { threshold: 0, rootMargin: "0px 0px -12% 0px" },
     );
 
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
@@ -185,8 +192,14 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    // Firing a smooth scrollTo in the middle of a touch drag fights the
+    // browser's own scrolling and leaves the page stuttering or stuck, so the
+    // auto-advance is desktop-only.
+    const isTouchDevice =
+      window.matchMedia?.("(hover: none), (pointer: coarse)").matches ?? false;
+    if (isTouchDevice) return;
+
     let hasAdvancedToAbout = false;
-    let touchStartY = 0;
 
     const scrollToAbout = () => {
       const aboutContent = document.querySelector("#about-section .about-content");
@@ -207,15 +220,6 @@ export default function Home() {
       if (event.deltaY > 0) scrollToAbout();
     };
 
-    const handleTouchStart = (event) => {
-      touchStartY = event.touches[0]?.clientY ?? 0;
-    };
-
-    const handleTouchMove = (event) => {
-      const currentY = event.touches[0]?.clientY ?? touchStartY;
-      if (touchStartY - currentY > 12) scrollToAbout();
-    };
-
     const handleKeyDown = (event) => {
       if (
         ["ArrowDown", "PageDown", "Space"].includes(event.code) ||
@@ -226,14 +230,10 @@ export default function Home() {
     };
 
     window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
