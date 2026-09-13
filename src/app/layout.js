@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <head>
-        <link rel="preload" as="image" href="/bg.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/bg.jpg" fetchPriority="high" />
       </head>
       <body>{children}</body>
     </html>

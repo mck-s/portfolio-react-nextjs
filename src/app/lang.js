@@ -134,11 +134,11 @@ export const translations = {
   en: {
     aboutTitle: "McK",
     aboutText:
-      "Bilingual Full-Stack Engineer based in Tokyo, Japan. Turning complex systems into simple, intuitive products.",
+      "Bilingual Full-Stack Engineer based in Tokyo, Japan. Making complex systems simple and intuitive.",
     aboutTimeline: [
       {
         year: "2018",
-        text: "Graduated top of class",
+        text: "Graduated (Summa Cum Laude)",
       },
       {
         year: "2019",
